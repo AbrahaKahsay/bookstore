@@ -1,20 +1,13 @@
 import './App.css';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Books from './components/Books';
 import Categories from './components/Categories';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
-      <nav>
-        <header className="books-header">
-          <h1> Bookstore CMS</h1>
-        </header>
-        <ul>
-          <li><Link to="/">Books</Link></li>
-          <li><Link to="/categories">Categories</Link></li>
-        </ul>
-      </nav>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Books />} />
         <Route path="/categories" element={<Categories />} />
