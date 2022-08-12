@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Books />} />
         <Route path="/categories" element={<Categories />} />
