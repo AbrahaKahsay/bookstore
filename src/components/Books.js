@@ -1,9 +1,15 @@
 import React from "react";
+import Book from './Book';
+import Form from './Form';
 
-const Books = ()=>{
+const Books = ()=> {
     return (
         <div className="books">
-            <h1>Books Will be displayed here</h1>
+            <div className="books-header">
+                <h1> Bookstore CMS</h1>
+            </div>
+            <Book />
+            <Form />
         </div>
     )
 }

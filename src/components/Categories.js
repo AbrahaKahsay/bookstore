@@ -1,8 +1,8 @@
 import React from "react";
 
-const Catogories = ()=> {
+const Categories = ()=> {
     return (
         <button type="button">Check status</button>
     )
 }
-export default Catogories;
+export default Categories;
