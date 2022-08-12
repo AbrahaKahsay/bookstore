@@ -4,11 +4,12 @@ const Form = ()=> {
 return (
 <div>
 <header>
-        <h2>ADD NEW BOOK</h2>
+        <h3>ADD NEW BOOK</h3>
     </header>
     <form>
         <input type="text" placeholder="Book-title" /> &nbsp;
-        <input type="text" placeholder="Author" />
+        <input type="text" placeholder="Author" /> &nbsp;
+        <button type="submit">ADD BOOK</button>
     </form>
 </div>
 )

@@ -6,6 +6,9 @@ function App() {
   return (
     <>
     <nav>
+      <header className="books-header">
+        <h1> Bookstore CMS</h1>
+      </header>
       <ul>
         <li><Link to='/'>Books</Link></li>
         <li><Link to='/categories'>Categories</Link></li>

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Book from './Book';
 import Form from './Form';
 
 const Books = ()=> {
+    const[books] = useState([
+        { 
+            title: "The Alchemist",
+            author: "Paulo Cohelo",
+            id: Math.random()
+        }]);
+
     return (
         <div className="books">
-            <div className="books-header">
-                <h1> Bookstore CMS</h1>
+            <div>
+            {books.map((book) => (<Book title={book.title} author={book.author} key={book.id}/>))}
             </div>
-            <Book />
             <Form />
         </div>
     )

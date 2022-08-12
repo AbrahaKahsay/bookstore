@@ -1,7 +1,7 @@
 import React from "react";
 
 const Categories = ()=> {
-    return (
+    return ( 
         <button type="button">Check status</button>
     )
 }
