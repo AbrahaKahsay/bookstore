@@ -8,3 +8,5 @@ const store = configureStore({
         statusReducer,
     }
 })
+
+export default store;
