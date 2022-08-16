@@ -1,41 +1,46 @@
 
 // action types
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
 
 // initial state
-const initialState = {
-    books: []
-};
+const initialState = [];
 
 // actions
-function addBook(){
+export const addBook=(title, author, id) => {
     return {
-        type: ADD_BOOK
+        type: ADD_BOOK,
+        title:title,
+        author:author,
+        id:id
     }
 }
 
-function removeBook(){
+export const removeBook =(id)=>{
     return {
-        type: REMOVE_BOOK
+        type: REMOVE_BOOK,
+        id:id
     }
 }
 
 // reducers
-const reducer = (state=initialState, action)=>{
+const booksReducer = (state=initialState, action)=>{
 switch(action.type){
     case ADD_BOOK:
-        return{
-            ...state,
-        books: [...state.books, action.newBook]
-        }
+        return
+            [...state, {
+                title:action.title,
+                author: action.author,
+                id: action.id
+            }
+        ]
     case REMOVE_BOOK:
-        return {
-            ...state,
-            books: state.books.filter(book => book.id !== id)
-        }
+        return 
+        state.filter(book => book.id !== action.id)
     default: 
     return state
 
 }
 }
+
+export default booksReducer;
