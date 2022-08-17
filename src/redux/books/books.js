@@ -7,18 +7,18 @@ const initialState = [
   {
     title: 'The Alchemist',
     author: 'Paulo Coelho',
-    id: 1
+    id: 1,
   },
-{
-  title:'Relativity',
-  author: 'Albert Einstien',
-  id: 2
-},
-{
-  title:'Think and Grow Rich',
-  author: 'Napoleon Hill',
-  id: 3
-}
+  {
+    title: 'Relativity',
+    author: 'Albert Einstien',
+    id: 2,
+  },
+  {
+    title: 'Think and Grow Rich',
+    author: 'Napoleon Hill',
+    id: 3,
+  },
 ];
 
 // actions
