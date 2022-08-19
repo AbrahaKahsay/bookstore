@@ -1,4 +1,4 @@
-import { getBooksFromServer, AddBookApi, removeBookApi } from "../../Api/Api";
+import { getBooksFromServer, AddBookApi, removeBookApi } from '../../Api/Api';
 // action types
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
@@ -15,11 +15,13 @@ export const readBooks = () => async (dispatch) => {
     payload: books,
   });
 };
-export const addBook = (book) => async (dispatch) => {
-  await AddBookApi(book);
+export const addBook = (title, author, id) => async (dispatch) => {
+  await AddBookApi(title, author, id);
   dispatch({
     type: ADD_BOOK,
-    payload: book,
+    title,
+    author,
+    id,
   });
 };
 
@@ -27,17 +29,21 @@ export const removeBook = (id) => async (dispatch) => {
   await removeBookApi(id);
   dispatch({
     type: REMOVE_BOOK,
-    payload: id,
-})
+    id,
+  });
 };
 
 // reducers
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return [...state, action.payload];
+      return [...state, {
+        title: action.title,
+        author: action.author,
+        id: action.id,
+      }];
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload);
+      return state.filter((book) => book.id !== action.id);
     case READ_BOOKS:
       return action.payload;
     default:

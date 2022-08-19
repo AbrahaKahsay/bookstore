@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import { removeBook } from '../redux/books/books';
+import { readBooks, removeBook } from '../redux/books/books';
 
 const Book = (props) => {
   const { id, title, author } = props;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(readBooks());
+  }, []);
+
   const handleClick = () => dispatch(removeBook(id));
   return (
-    <li className="lists">
+    <div className="lists">
       <div className="header">
-        <h4 className="title">{title}</h4>
+        <h3 className="title">{title}</h3>
         <p className="author">{author}</p>
         <div className="button-container">
           <button className="comments" type="button">Comments</button>
@@ -19,7 +24,7 @@ const Book = (props) => {
         </div>
       </div>
       <div className="progress" />
-    </li>
+    </div>
   );
 };
 
