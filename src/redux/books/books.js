@@ -1,25 +1,10 @@
+import { getBooksFromServer, AddBookApi, removeBookApi } from "../../Api/Api";
 // action types
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
 
 // initial state
-const initialState = [
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    id: 1,
-  },
-  {
-    title: 'Relativity',
-    author: 'Albert Einstien',
-    id: 2,
-  },
-  {
-    title: 'Think and Grow Rich',
-    author: 'Napoleon Hill',
-    id: 3,
-  },
-];
+const initialState = [];
 
 // actions
 export const addBook = (title, author, id) => ({
