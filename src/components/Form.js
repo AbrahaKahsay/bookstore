@@ -1,44 +1,46 @@
-import { v4 as uuidv4 } from 'uuid';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { addBookThunk } from '../redux/books/books';
 
 const AddBookForm = () => {
   const dispatch = useDispatch();
-
-  const [inpTitle, setInputTitle] = useState('');
-  const [inpAuthor, setInputAuthor] = useState('');
-
-  // const [bookInfo, setBookInfo] = useState({title:'', author:''})
+  const [bookInfo, setBookInfo] = useState({ title: '', author: '', category: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newBook = {
-      title: inpTitle,
-      author: inpAuthor,
-      id: uuidv4(),
-    };
-
-    if (inpTitle && inpAuthor) {
-      dispatch(addBook(newBook.title, newBook.author, newBook.id));
-      e.target.title.value = '';
-      e.target.author.value = '';
-      setInputTitle('');
-      setInputAuthor('');
-    }
+    e.target.previousElementSibling.previousElementSibling.value = '';
+    e.target.previousElementSibling.previousElementSibling.previousElementSibling.value = '';
+    dispatch(addBookThunk(bookInfo));
   };
+
+  const handleChange = (e) => {
+    setBookInfo({
+      ...bookInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div>
       <header>
         <h3>ADD NEW BOOK</h3>
       </header>
-      <form onSubmit={handleSubmit}>
-        <input onInput={(e) => { setInputTitle(e.target.value); }} type="text" name="title" placeholder="Book-title" />
-        <input onInput={(e) => { setInputAuthor(e.target.value); }} type="text" name="author" placeholder="Author" />
-        <button type="submit">ADD BOOK</button>
+      <form>
+        <input onInput={handleChange} type="text" name="title" placeholder="Book-title" />
+        <input onInput={handleChange} type="text" name="author" placeholder="Author" />
+        <select onInput={handleChange} name="category">
+          <option value="History">History</option>
+          <option value="Romance">Romance</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Science">Science</option>
+          <option value="Technology">Technology</option>
+        </select>
+        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+        <input onClick={handleSubmit} type="submit" value="Add Book" />
       </form>
     </div>
+
   );
 };
+
 export default AddBookForm;
