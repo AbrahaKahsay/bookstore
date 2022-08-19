@@ -1,53 +1,56 @@
-// action types
+import axios from 'axios';
+import uuid from 'react-uuid';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+/* eslint-disable no-console */
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
+const READ_BOOKS = 'bookstore-react-app/books/READ_BOOK';
 
-// initial state
-const initialState = [
-  {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
-    id: 1,
-  },
-  {
-    title: 'Relativity',
-    author: 'Albert Einstien',
-    id: 2,
-  },
-  {
-    title: 'Think and Grow Rich',
-    author: 'Napoleon Hill',
-    id: 3,
-  },
-];
+const apiKey = 'HsQggvvk6JE8utFql7Hk';
+const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
 
-// actions
-export const addBook = (title, author, id) => ({
-  type: ADD_BOOK,
-  title,
-  author,
-  id,
+export const readBooksThunk = createAsyncThunk(READ_BOOKS, async () => {
+  const response = await axios.get(`${baseUrl}/${apiKey}/books/`).catch((error) => { console.log(error); });
+  const res = response.data;
+  return Object.keys(res).map((key) => ({
+    id: key,
+    ...res[key][0],
+  }));
 });
 
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
+export const addBookThunk = createAsyncThunk(
+  ADD_BOOK,
+  async (singleBook,
+    thunkAPI) => {
+    const book = {
+      item_id: uuid(),
+      title: singleBook.title,
+      author: singleBook.author,
+      category: singleBook.category,
+    };
+    await axios.post(`${baseUrl}/${apiKey}/books/`, book)
+      .then(() => { thunkAPI.dispatch(readBooksThunk()); })
+      .catch((error) => { console.log(error); });
+    return thunkAPI.getState().books;
+  },
+);
+
+export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (bookId, thunkAPI) => {
+  await axios.delete(`${baseUrl}/${apiKey}/books/${bookId}`)
+    .then(() => { thunkAPI.dispatch(readBooksThunk()); })
+    .catch((error) => { console.log(error); });
+  return thunkAPI.getState().books;
 });
 
-// reducers
-const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...state, {
-        title: action.title,
-        author: action.author,
-        id: action.id,
-      }];
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
-    default:
-      return state;
-  }
-};
+const storeSlice = createSlice({
+  name: 'bookstore/books',
+  initialState: [],
+  extraReducers: {
+    [readBooksThunk.fulfilled]: (state, action) => action.payload,
+    [addBookThunk.fulfilled]: (state, action) => action.payload,
 
-export default booksReducer;
+  },
+});
+
+export default storeSlice.reducer;
