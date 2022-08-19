@@ -11,9 +11,7 @@ const Book = () => {
 
   const handleClickRemove = (e) => {
     e.preventDefault();
-    console.log('start handleClickRemve');
     dispatch(removeBookThunk(e.target.id));
-    console.log('End handleClickRemove');
   };
 
   return (

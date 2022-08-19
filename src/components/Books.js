@@ -1,7 +1,5 @@
-/* eslint-disable max-len */
 import React from 'react';
 import Book from './Book';
-
 import AddBookForm from './Form';
 
 const Books = () => (

@@ -2,16 +2,16 @@ import axios from 'axios';
 import uuid from 'react-uuid';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// action types
+/* eslint-disable no-console */
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
 const READ_BOOKS = 'bookstore-react-app/books/READ_BOOK';
 
-const apiKey = 'VqFMgSNVqGGvXwjT3BVI';
+const apiKey = 'HsQggvvk6JE8utFql7Hk';
 const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
 
 export const readBooksThunk = createAsyncThunk(READ_BOOKS, async () => {
-  const response = await axios.get(`${baseUrl}/${apiKey}/books`).catch((error) => { console.log(error); });
+  const response = await axios.get(`${baseUrl}/${apiKey}/books/`).catch((error) => { console.log(error); });
   const res = response.data;
   return Object.keys(res).map((key) => ({
     id: key,
@@ -37,7 +37,6 @@ export const addBookThunk = createAsyncThunk(
 );
 
 export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (bookId, thunkAPI) => {
-  console.log('removeBookThunk was called with: ', bookId);
   await axios.delete(`${baseUrl}/${apiKey}/books/${bookId}`)
     .then(() => { thunkAPI.dispatch(readBooksThunk()); })
     .catch((error) => { console.log(error); });
