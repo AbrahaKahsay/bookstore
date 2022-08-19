@@ -1,36 +1,38 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { PropTypes } from 'prop-types';
-import { readBooks, removeBook } from '../redux/books/books';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { readBooksThunk, removeBookThunk } from '../redux/books/books';
 
-const Book = (props) => {
-  const { id, title, author } = props;
+const Book = () => {
+  const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(readBooks());
+    dispatch(readBooksThunk());
   }, []);
 
-  const handleClick = () => dispatch(removeBook(id));
+  const handleClickRemove = (e) => {
+    e.preventDefault();
+    console.log('start handleClickRemve');
+    dispatch(removeBookThunk(e.target.id));
+    console.log('End handleClickRemove');
+  };
+
   return (
-    <div className="lists">
-      <div className="header">
-        <h3 className="title">{title}</h3>
-        <p className="author">{author}</p>
-        <div className="button-container">
-          <button className="comments" type="button">Comments</button>
-          <button className="comments" onClick={handleClick} type="button">Remove</button>
-          <button className="comments" type="button">Edit</button>
+    books.map((book) => (
+      <div key={book.id} className="lists">
+        <div className="header">
+          <span>{book.category }</span>
+          <h1 className="title">{book.title}</h1>
+          <p className="author">{book.author}</p>
+          <div className="button-container">
+            <button className="comments" type="button">Comments</button>
+            <button id={book.id} className="comments" onClick={handleClickRemove} type="button">Remove</button>
+            <button className="comments" type="button">Edit</button>
+          </div>
         </div>
+        <div className="progress" />
       </div>
-      <div className="progress" />
-    </div>
+    ))
   );
 };
 
-Book.propTypes = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-};
 export default Book;
