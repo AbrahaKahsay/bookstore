@@ -9,6 +9,8 @@ const AddBookForm = () => {
   const [inpTitle, setInputTitle] = useState('');
   const [inpAuthor, setInputAuthor] = useState('');
 
+  // const [bookInfo, setBookInfo] = useState({title:'', author:''})
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,6 +24,8 @@ const AddBookForm = () => {
       dispatch(addBook(newBook.title, newBook.author, newBook.id));
       e.target.title.value = '';
       e.target.author.value = '';
+      setInputTitle('');
+      setInputAuthor('');
     }
   };
   return (
