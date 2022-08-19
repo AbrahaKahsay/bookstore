@@ -22,3 +22,12 @@ export const AddBookApi = async (book) => {
     });
   };
 
+export const removeBookApi = async (id) => {
+    await fetch(`${baseUrl}${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  };
+
