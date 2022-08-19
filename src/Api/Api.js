@@ -10,3 +10,15 @@ export const getBooksFromServer = async () => {
     return books;
   };
 
+export const AddBookApi = async (book) => {
+    const apiBook = { ...book };
+    delete Object.assign(apiBook, { item_id: apiBook.id }).id;
+    await fetch(baseUrl, {
+      method: 'POST',
+      body: JSON.stringify(apiBook),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  };
+
