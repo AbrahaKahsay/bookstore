@@ -8,11 +8,18 @@ const Book = (props) => {
   const dispatch = useDispatch();
   const handleClick = () => dispatch(removeBook(id));
   return (
-    <div>
-      <h4>{title}</h4>
-      <p>{author}</p>
-      <button type="button" onClick={handleClick}>Delete</button>
-    </div>
+    <li className="lists">
+      <div className="header">
+        <h4 className="title">{title}</h4>
+        <p className="author">{author}</p>
+        <div className="button-container">
+          <button className="comments" type="button">Comments</button>
+          <button className="comments" onClick={handleClick} type="button">Remove</button>
+          <button className="comments" type="button">Edit</button>
+        </div>
+      </div>
+      <div className="progress" />
+    </li>
   );
 };
 
