@@ -2,22 +2,34 @@ import { getBooksFromServer, AddBookApi, removeBookApi } from "../../Api/Api";
 // action types
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
+const READ_BOOKS = 'bookstore-react-app/books/READ_BOOK';
 
 // initial state
 const initialState = [];
 
 // actions
-export const addBook = (title, author, id) => ({
-  type: ADD_BOOK,
-  title,
-  author,
-  id,
-});
+export const readBooks = () => async (dispatch) => {
+  const books = await getBooksFromServer();
+  dispatch({
+    type: READ_BOOKS,
+    payload: books,
+  });
+};
+export const addBook = (book) => async (dispatch) => {
+  await AddBookApi(book);
+  dispatch({
+    type: ADD_BOOK,
+    payload: book,
+  });
+};
 
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
+export const removeBook = (id) => async (dispatch) => {
+  await removeBookApi(id);
+  dispatch({
+    type: REMOVE_BOOK,
+    payload: id,
+})
+};
 
 // reducers
 const booksReducer = (state = initialState, action) => {
