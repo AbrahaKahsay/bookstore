@@ -1,6 +1,8 @@
 // action types
 const ADD_BOOK = 'bookstore-react-app/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore-react-app/books/REMOVE_BOOK';
+const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+const appId = 'HsQggvvk6JE8utFql7Hk';
 
 // initial state
 const initialState = [
