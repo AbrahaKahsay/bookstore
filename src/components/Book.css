@@ -1,16 +1,19 @@
+.lists-container {
+    width: 80%;
+    height: 8.625rem;
+    margin: 2.313rem 6.25rem 0;
+    padding: 2rem 6.188rem 1.625rem 1.688rem;
+    border-radius: 4px;
+    border: solid 1px #e8e8e8;
+    background-color: #fff;
+}
+
 .lists {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     justify-items: center;
-    width: 80%;
-    height: 10.625rem;
-    margin: 2.313rem 6.25rem 0;
-    padding: 2rem 9.188rem 1.625rem 1.688rem;
-    border-radius: 4px;
-    border: solid 1px #e8e8e8;
-    background-color: #fff;
 }
 
 .progress-containner {
@@ -66,7 +69,7 @@
   .comments {
     width: 4.563rem;
     height: 1.188rem;
-    margin: 0.188rem 0.938rem 0.125rem 0;
+    margin: 0.5rem 0.938rem 0.125rem 0;
     font-family: RobotoSlab;
     font-size: 0.875rem;
     font-weight: 300;
@@ -83,6 +86,14 @@
   .remove-btn {
     border-left: solid 1px #e8e8e8;
     border-right: solid 1px #e8e8e8;
+  }
+
+  .progress {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 5px solid #0290ff;
+    color: #fff;
   }
 
   .percent-complete {
@@ -112,4 +123,52 @@
     line-height: normal;
     letter-spacing: normal;
     color: #121212;
+  }
+
+  .current-chapter {
+    width: 7.875rem;
+    height: 1.125rem;
+    margin: 0.063rem 3.625rem 0 3.688rem;
+    opacity: 0.5;
+    font-family: RobotoSlab;
+    font-size: 0.813rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #121212;
+  }
+
+  .chapter {
+    width: 4.688rem;
+    height: 1.313rem;
+    margin: 0.438rem 6.813rem 0.25rem 3.688rem;
+    font-family: RobotoSlab;
+    font-size: 1rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    color: #121212;
+  }
+
+  .update-progress {
+    width: 11.5rem;
+    height: 2.063rem;
+    margin: 0.75rem 0 0.563rem 3.688rem;
+    padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #0290ff;
+    font-family: RobotoSlab;
+    font-size: 0.813rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #fff;
   }

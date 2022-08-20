@@ -17,37 +17,37 @@ const Book = () => {
 
   return (
     books.map((book) => (
-      <section key={book.id} className="lists">
-
-        <div className="header">
-          <span className="action">{book.category }</span>
-          <h1 className="title">{book.title}</h1>
-          <p className="author">{book.author}</p>
-          <div className="button-container">
-            <button className="comments" type="button">Comments</button>
-            <button id={book.id} className="comments remove-btn" onClick={handleClickRemove} type="button">Remove</button>
-            <button className="comments" type="button">Edit</button>
-          </div>
-        </div>
-        <div>
-          <div className="progress-containner">
-            <div>
-              <div className="progress">O</div>
-            </div>
-            <div>
-              <h1 className="percent-complete">64%</h1>
-              <p className="completed">completed</p>
+      <section key={book.id} className="lists-container">
+        <div className="lists">
+          <div className="header">
+            <span className="action">{book.category }</span>
+            <h1 className="title">{book.title}</h1>
+            <p className="author">{book.author}</p>
+            <div className="button-container">
+              <button className="comments" type="button">Comments</button>
+              <button id={book.id} className="comments remove-btn" onClick={handleClickRemove} type="button">Remove</button>
+              <button className="comments" type="button">Edit</button>
             </div>
           </div>
+          <div>
+            <div className="progress-containner">
+              <div>
+                <div className="progress">o</div>
+              </div>
+              <div>
+                <h1 className="percent-complete">64%</h1>
+                <p className="completed">completed</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 className="current-chapter">CURRENT CHAPTER</h1>
+            <h2 className="chapter">Chapter 17</h2>
+            <button className="update-progress" type="button">
+              Update Progress
+            </button>
+          </div>
         </div>
-        <div>
-          <h1 className="current-chapter">CURRENT CHAPTER</h1>
-          <h2 className="chapter">Chapter 17</h2>
-          <button className="update-progress" type="button">
-            Update Progress
-          </button>
-        </div>
-
       </section>
     ))
   );
