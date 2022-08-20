@@ -44,7 +44,7 @@ const Book = () => {
             <h1 className="current-chapter">CURRENT CHAPTER</h1>
             <h2 className="chapter">Chapter 17</h2>
             <button className="update-progress" type="button">
-              Update Progress
+              UPDATE PROGRESS
             </button>
           </div>
         </div>

@@ -6,8 +6,12 @@
     width: 87.5rem;
     height: 5.938rem;
     margin: 0 0 2.375rem;
-    padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+    padding: 1rem 6.188rem 0.2rem 6.25rem;
     background-color: #fff;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    /* height: 10%; */
 }
 
 .books-header h1 {
