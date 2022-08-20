@@ -4,4 +4,112 @@
     justify-content: space-between;
     align-items: center;
     justify-items: center;
+    width: 80%;
+    height: 10.625rem;
+    margin: 2.313rem 6.25rem 0;
+    padding: 2rem 9.188rem 1.625rem 1.688rem;
+    border-radius: 4px;
+    border: solid 1px #e8e8e8;
+    background-color: #fff;
 }
+
+.progress-containner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
+.action {
+    width: 3.063rem;
+    height: 1.125rem;
+    margin: 0 2.438rem 0 0;
+    opacity: 0.5;
+    font-family: Montserrat;
+    font-size: 0.875rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #121212;
+  }
+  
+  .title {
+    width: 12.313rem;
+    height: 1.813rem;
+    margin: 0.188rem 20.188rem 0 0;
+    font-family: RobotoSlab;
+    font-size: 1.375rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.2px;
+    color: #121212;
+  }
+
+  .author {
+    width: 6.688rem;
+    height: 1.188rem;
+    margin: 0.25rem 0 0;
+    font-family: RobotoSlab;
+    font-size: 0.875rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4386bf;
+  }
+
+  .comments {
+    width: 4.563rem;
+    height: 1.188rem;
+    margin: 0.188rem 0.938rem 0.125rem 0;
+    font-family: RobotoSlab;
+    font-size: 0.875rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4386bf;
+    border: none;
+    background-color: #fff;
+    padding: 0;
+  }
+
+  .remove-btn {
+    border-left: solid 1px #e8e8e8;
+    border-right: solid 1px #e8e8e8;
+  }
+
+  .percent-complete {
+    width: 4.25rem;
+    height: 2.438rem;
+    margin: 0.063rem 5.75rem 0 0.688rem;
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #121212;
+  }
+
+  .completed {
+    width: 5rem;
+    height: 1.125rem;
+    margin: 0.438rem 4.938rem 0.75rem 0.75rem;
+    opacity: 0.5;
+    font-family: Montserrat;
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #121212;
+  }

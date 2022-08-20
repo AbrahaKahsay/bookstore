@@ -20,23 +20,23 @@ const Book = () => {
       <section key={book.id} className="lists">
 
         <div className="header">
-          <p>{book.category }</p>
+          <span className="action">{book.category }</span>
           <h1 className="title">{book.title}</h1>
           <p className="author">{book.author}</p>
           <div className="button-container">
             <button className="comments" type="button">Comments</button>
-            <button id={book.id} className="comments" onClick={handleClickRemove} type="button">Remove</button>
+            <button id={book.id} className="comments remove-btn" onClick={handleClickRemove} type="button">Remove</button>
             <button className="comments" type="button">Edit</button>
           </div>
         </div>
         <div>
           <div className="progress-containner">
             <div>
-              <div className="progress">@</div>
+              <div className="progress">O</div>
             </div>
             <div>
-              <h1>70%</h1>
-              <span>completed</span>
+              <h1 className="percent-complete">64%</h1>
+              <p className="completed">completed</p>
             </div>
           </div>
         </div>
