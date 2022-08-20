@@ -34,11 +34,10 @@ const AddBookForm = () => {
           <option value="Romance">Romance</option>
           <option value="Mystery">Mystery</option>
           <option value="Science">Science</option>
-          <option value="Business">Science</option>
           <option value="Technology">Technology</option>
         </select>
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-        <input className="submit" onClick={handleSubmit} type="submit" value="ADD BOOK" />
+        <input className="submit-btn" onClick={handleSubmit} type="submit" value="ADD BOOK" />
       </form>
     </div>
 

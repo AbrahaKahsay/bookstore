@@ -61,7 +61,7 @@
   color: var(--very-light-pink);
 }
 
-.submit {
+.submit-btn {
   width: 11.5rem;
   height: 2.813rem;
   margin: 1.188rem 0 0 2.125rem;
@@ -77,4 +77,5 @@
   letter-spacing: 0.5px;
   text-align: center;
   color: #fff;
+  border-style: none;
 }
