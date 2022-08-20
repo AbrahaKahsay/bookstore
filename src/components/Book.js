@@ -16,9 +16,9 @@ const Book = () => {
 
   return (
     books.map((book) => (
-      <div key={book.id} className="lists">
+      <section key={book.id} className="lists">
         <div className="header">
-          <span>{book.category }</span>
+          <p>{book.category }</p>
           <h1 className="title">{book.title}</h1>
           <p className="author">{book.author}</p>
           <div className="button-container">
@@ -27,8 +27,25 @@ const Book = () => {
             <button className="comments" type="button">Edit</button>
           </div>
         </div>
-        <div className="progress" />
-      </div>
+        <div>
+          <div className="progress-containner">
+            <div>
+              <div className="progress">@</div>
+            </div>
+            <div>
+              <h1>70%</h1>
+              <span>completed</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1 className="current-chapter">CURRENT CHAPTER</h1>
+          <h2 className="chapter">Chapter 17</h2>
+          <button className="update-progress" type="button">
+            Update Progress
+          </button>
+        </div>
+      </section>
     ))
   );
 };
