@@ -1,3 +1,4 @@
+import './Book.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { readBooksThunk, removeBookThunk } from '../redux/books/books';
@@ -17,6 +18,7 @@ const Book = () => {
   return (
     books.map((book) => (
       <section key={book.id} className="lists">
+
         <div className="header">
           <p>{book.category }</p>
           <h1 className="title">{book.title}</h1>
@@ -45,6 +47,7 @@ const Book = () => {
             Update Progress
           </button>
         </div>
+
       </section>
     ))
   );
