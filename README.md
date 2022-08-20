@@ -4,6 +4,10 @@
 
 A book library app made of react. It allows the usr to add book, remove book and write comment
 
+## Screenshot
+
+![image](https://user-images.githubusercontent.com/75738563/185759489-46ce50b8-7b0d-40fd-9abc-dd230d0637b4.png)
+
 ## Built with
 
 - Major languages: HTML, CSS, JavaScript, React
@@ -65,4 +69,4 @@ To get a local copy up and running follow these simple example steps.
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is MIT licensed.
